@@ -5,6 +5,8 @@ github.com/jbrukh/go-banzhaf v0.0.0-20191117150337-eb1da3431d02 h1:iifRAnouF8VY6
 github.com/jbrukh/go-banzhaf v0.0.0-20191117150337-eb1da3431d02/go.mod h1:A/tLujRrPuyBYgxGkjeKJfPcZo7/tCY3k7WUmKQzxrk=
 github.com/jbrukh/go-banzhaf v0.0.1 h1:rtcoU6fg15QyF6Fgdm9OPcTXagFsa/k4xk7UvToBV3U=
 github.com/jbrukh/go-banzhaf v0.0.1/go.mod h1:A/tLujRrPuyBYgxGkjeKJfPcZo7/tCY3k7WUmKQzxrk=
+github.com/jbrukh/go-banzhaf v0.1.0 h1:EV2U5wECVRPtSNuJXpWwRRfWgBZwG63pNsHyvCN85ys=
+github.com/jbrukh/go-banzhaf v0.1.0/go.mod h1:A/tLujRrPuyBYgxGkjeKJfPcZo7/tCY3k7WUmKQzxrk=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/russross/blackfriday/v2 v2.0.1 h1:lPqVAte+HuHNfhJ/0LC98ESWRz8afy9tM/0RK8m9o+Q=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
