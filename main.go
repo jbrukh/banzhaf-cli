@@ -45,11 +45,13 @@ func main() {
 				quota := args[0]
 				weights := args[1:]
 
-				bi, ok := banzhaf.Banzhaf(weights, quota, true)
-				if !ok {
-					return fmt.Errorf("banzhaf error")
+				bi, err := banzhaf.Banzhaf(weights, quota, false)
+				if err != nil {
+					return err
 				}
-				log.Printf("index=%v\n", bi)
+				for i, v := range bi {
+					fmt.Printf("%d,%.20f\n", weights[i], v)
+				}
 			}
 			return nil
 		},
@@ -92,7 +94,6 @@ func runBanzhaf(filename string) error {
 		balanceUint := uint64(balance)
 
 		if balanceUint > 0 {
-			log.Printf("%v\n", balanceUint)
 			weights = append(weights, balanceUint)
 			total += balanceUint
 			count++
@@ -103,10 +104,14 @@ func runBanzhaf(filename string) error {
 	log.Printf("weights=%v\n", weights)
 
 	// do analysis
-	bi, ok := banzhaf.Banzhaf(weights, quota, true)
-	if !ok {
-		return fmt.Errorf("banzhaf error")
+	bi, err := banzhaf.Banzhaf(weights, quota, false)
+	if err != nil {
+		return err
 	}
-	log.Printf("index=%v\n", bi)
+
+	for i, v := range bi {
+		fmt.Printf("%d,%.10f\n", weights[i], v)
+	}
+
 	return nil
 }
