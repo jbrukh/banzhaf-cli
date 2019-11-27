@@ -1,3 +1,5 @@
 *.csv
 banzhaf-cli
 *.input
+*.out
+*.args
