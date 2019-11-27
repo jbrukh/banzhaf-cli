@@ -1,1 +1,3 @@
 *.csv
+banzhaf-cli
+*.input

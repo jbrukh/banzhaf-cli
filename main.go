@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"log"
 	"strconv"
@@ -18,15 +19,33 @@ func main() {
 		Usage: "calculate Banzhaf power indices",
 		Action: func(c *cli.Context) error {
 			n := c.NArg()
-			if n < 2 {
-				return fmt.Errorf("provide <quota> <weight1> <weight2> ...")
+			if n < 1 {
+				return fmt.Errorf("usage: banzhaf-cli <file>")
 			}
-			args := make([]uint64, n)
-			for i, arg := range c.Args().Slice() {
-				var err error
-				if args[i], err = strconv.ParseUint(arg, 10, 64); err != nil {
+
+			args := make([]uint64, 0, 128)
+
+			file, err := os.Open(c.Args().Get(0))
+			if err != nil {
+				return err
+			}
+			reader := bufio.NewReader(file)
+			scanner := bufio.NewScanner(reader)
+
+			// Set the split function for the scanning operation.
+			scanner.Split(bufio.ScanWords)
+
+			// scan
+			for scanner.Scan() {
+				tok := scanner.Text()
+				if v, err := strconv.ParseUint(tok, 10, 64); err != nil {
 					return err
+				} else {
+					args = append(args, v)
 				}
+			}
+			if err := scanner.Err(); err != nil {
+				return fmt.Errorf("reading input: %v", err)
 			}
 
 			quota := args[0]
