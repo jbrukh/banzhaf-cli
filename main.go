@@ -17,6 +17,23 @@ func main() {
 	app := &cli.App{
 		Name:  "banzhaf",
 		Usage: "calculate Banzhaf power indices",
+		Flags: []cli.Flag{
+			&cli.Float64Flag{
+				Name:    "confidence",
+				Aliases: []string{"c"},
+				Value:   0.01,
+			},
+			&cli.Float64Flag{
+				Name:    "width",
+				Aliases: []string{"w"},
+				Value:   0.01,
+			},
+			&cli.BoolFlag{
+				Name:    "approx",
+				Aliases: []string{"a"},
+				Value:   false,
+			},
+		},
 		Action: func(c *cli.Context) error {
 			n := c.NArg()
 			if n < 1 {
@@ -51,12 +68,24 @@ func main() {
 			quota := args[0]
 			weights := args[1:]
 
-			bi, err := banzhaf.Banzhaf(weights, quota, false)
-			if err != nil {
-				return err
-			}
-			for i, v := range bi {
-				fmt.Printf("%d,%.20f\n", weights[i], v)
+			if c.Bool("approx") {
+				bi, err := banzhaf.BanzhafApprox(weights, quota, c.Float64("confidence"), c.Float64("width"))
+				if err != nil {
+					return err
+				}
+				fmt.Println("weight,banzhaf_approx")
+				for i, v := range bi {
+					fmt.Printf("%d,%.20f\n", weights[i], v)
+				}
+			} else {
+				bi, err := banzhaf.Banzhaf(weights, quota, false)
+				if err != nil {
+					return err
+				}
+				fmt.Println("weight,banzhaf")
+				for i, v := range bi {
+					fmt.Printf("%d,%.20f\n", weights[i], v)
+				}
 			}
 			return nil
 		},
