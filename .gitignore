@@ -3,4 +3,4 @@ banzhaf-cli
 *.input
 *.out
 *.args
-old
+/var/*
