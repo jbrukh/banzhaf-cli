@@ -32,6 +32,8 @@ github.com/jbrukh/go-banzhaf v0.4.0 h1:5+J9+LU363DobAeN5HiIjWxva8xEcFdB7+eLuv/Cx
 github.com/jbrukh/go-banzhaf v0.4.0/go.mod h1:3EE9XKT9RGUP1gS+P0rdaYRsq+6PXxQ8UUYhsD9WvDA=
 github.com/jbrukh/go-banzhaf v0.4.1 h1:l/uHJDuWbP7Ypk5/jW0RJmFs0F2pRhgmZ9zpPrOB+0M=
 github.com/jbrukh/go-banzhaf v0.4.1/go.mod h1:3EE9XKT9RGUP1gS+P0rdaYRsq+6PXxQ8UUYhsD9WvDA=
+github.com/jbrukh/go-banzhaf v0.4.4 h1:ZyjTa8OovFrlLPloBklmDo8FodiP9eD1TMuRoeEBO7o=
+github.com/jbrukh/go-banzhaf v0.4.4/go.mod h1:3EE9XKT9RGUP1gS+P0rdaYRsq+6PXxQ8UUYhsD9WvDA=
 github.com/mattn/go-colorable v0.1.2 h1:/bC9yWikZXAL9uJdulbSfyVNIR3n3trXl+v8+1sx8mU=
 github.com/mattn/go-colorable v0.1.2/go.mod h1:U0ppj6V5qS13XJ6of8GYAs25YV2eR4EVcfRqFIhoBtE=
 github.com/mattn/go-isatty v0.0.8 h1:HLtExJ+uU2HOZ+wI0Tt5DtUDrx8yhUqDcp7fYERX4CE=
