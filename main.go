@@ -12,21 +12,20 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+func init() {
+	banzhaf.ProgressBar = true
+}
+
 func main() {
 
 	app := &cli.App{
 		Name:  "banzhaf",
 		Usage: "calculate Banzhaf power indices",
 		Flags: []cli.Flag{
-			&cli.Float64Flag{
-				Name:    "confidence",
-				Aliases: []string{"c"},
-				Value:   0.01,
-			},
-			&cli.Float64Flag{
-				Name:    "width",
-				Aliases: []string{"w"},
-				Value:   0.01,
+			&cli.BoolFlag{
+				Name:    "absolute",
+				Aliases: []string{"a"},
+				Value:   false,
 			},
 		},
 		Action: func(c *cli.Context) error {
@@ -63,7 +62,7 @@ func main() {
 			quota := args[0]
 			weights := args[1:]
 
-			bi, err := banzhaf.Banzhaf(weights, quota, false)
+			bi, err := banzhaf.Banzhaf(weights, quota, c.Bool("absolute"))
 			if err != nil {
 				return err
 			}
